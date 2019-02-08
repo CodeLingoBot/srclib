@@ -862,7 +862,7 @@ func parFetches(fs rwvfs.FileSystem, filters interface{}) int {
 	return 0
 }
 
-// openFetcher calls fs.OpenFetcher if it implemented the
+// openFetcherOrOpen calls fs.OpenFetcher if it implemented the
 // FetcherOpener interface; otherwise it calls fs.Open.
 func openFetcherOrOpen(fs rwvfs.FileSystem, name string) (vfs.ReadSeekCloser, error) {
 	if fo, ok := fs.(rwvfs.FetcherOpener); ok {
@@ -891,7 +891,7 @@ func rangeReader(fs rwvfs.FileSystem, name string, f io.ReadSeeker, start, n int
 	return f, nil
 }
 
-// readDefs reads all defs from the def data file and returns them
+// readRefs reads all defs from the def data file and returns them
 // along with their serialized byte offsets.
 func (s *fsUnitStore) readRefs() (refs []*graph.Ref, fbrs fileByteRanges, ofs byteOffsets, err error) {
 	vlog.Println("fsUnitStore: reading all refs and byte ranges...")
@@ -992,7 +992,7 @@ func (s *fsUnitStore) writeDefs(defs []*graph.Def) (ofs byteOffsets, err error) 
 	return ofs, nil
 }
 
-// writeDefs writes the ref data file.
+// writeRefs writes the ref data file.
 func (s *fsUnitStore) writeRefs(refs []*graph.Ref) (fbr fileByteRanges, ofs byteOffsets, err error) {
 	vlog.Printf("%s: writing %d refs...", s, len(refs))
 	f, err := s.fs.Create(unitRefsFilename)

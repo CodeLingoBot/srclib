@@ -85,7 +85,7 @@ func TestVarintNormal(t *testing.T) {
 	}
 }
 
-//issue 32
+// TestVarintMaxSize checks a case when issue 32
 func TestVarintMaxSize(t *testing.T) {
 	var buf bytes.Buffer
 	writer := NewDelimitedWriter(&buf)

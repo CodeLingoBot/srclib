@@ -30,7 +30,7 @@ var c_unitFilesIndex_getByPath = &counter{count: new(int64)}
 
 func (x *unitFilesIndex) String() string { return fmt.Sprintf("unitFilesIndex(ready=%v)", x.ready) }
 
-// getByFile returns a list of source units that contain the file
+// getByPath returns a list of source units that contain the file
 // specified by the path. The path can also be a directory, in which
 // case all source units that contain files underneath that directory
 // are returned.

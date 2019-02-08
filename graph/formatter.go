@@ -140,7 +140,7 @@ type DefFormatter interface {
 	Kind() string
 }
 
-// Formatter creates a string formatter for a def.
+// PrintFormatter creates a string formatter for a def.
 //
 // The verbs:
 //

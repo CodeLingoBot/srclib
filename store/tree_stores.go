@@ -53,7 +53,7 @@ type treeStoreOpener interface {
 	openAllTreeStores() (map[string]TreeStore, error)
 }
 
-// openCommitstores is a helper func that calls o.openTreeStore for
+// openTreeStores is a helper func that calls o.openTreeStore for
 // each tree returned by scopeTrees(filters...).
 func openTreeStores(o treeStoreOpener, filters interface{}) (map[string]TreeStore, error) {
 	commitIDs, err := scopeTrees(storeFilters(filters))

@@ -2,7 +2,7 @@ package graph
 
 import "testing"
 
-// Ensures TryMakeURI works properly and supports different URLs
+// TestTryMakeURI ensures TryMakeURI works properly and supports different URLs
 func TestTryMakeURI(t *testing.T) {
 
 	tests := []struct {

@@ -123,7 +123,7 @@ func removeGlob(glob string) error {
 	return nil
 }
 
-// Tries to remove READONLY mark from file (recursive)
+// clearReadOnly tries to remove READONLY mark from file (recursive)
 // On Windows, os.Remove does not work if file was marked as READONLY (for example, git does it)
 func clearReadOnly(path string) error {
 	fi, err := os.Stat(path)

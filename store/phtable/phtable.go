@@ -155,7 +155,7 @@ func (c *CHD) Iterate() *Iterator {
 	return &Iterator{c: c}
 }
 
-// Serialize the CHD. The serialized form is conducive to mmapped access. See
+// Write; Serialize the CHD. The serialized form is conducive to mmapped access. See
 // the Mmap function for details.
 func (c *CHD) Write(w io.Writer) error {
 	write := func(nd ...interface{}) error {

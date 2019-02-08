@@ -544,7 +544,7 @@ func (f *byRefDefFilter) withEmptyImpliedValues() graph.RefDefKey {
 var _ impliedRepoSetter = (*byRefDefFilter)(nil)
 var _ impliedUnitSetter = (*byRefDefFilter)(nil)
 
-// An AbsRefFilterFunc creates a RefFilter that selects only those
+// AbsRefFilterFunc; An AbsRefFilterFunc creates a RefFilter that selects only those
 // refs for which the func returns true. Unlike RefFilterFunc, the
 // ref's Def{Repo,UnitType,Unit,Path}, Repo, and CommitID fields are
 // populated.

@@ -44,7 +44,7 @@ type CHDBuilder struct {
 	valueVarints []uint64
 }
 
-// Create a new CHD hash table builder.
+// Builder; Create a new CHD hash table builder.
 func Builder(size int) *CHDBuilder {
 	return &CHDBuilder{
 		keys:   make([][]byte, 0, int(size)),
@@ -71,7 +71,7 @@ func (b *CHDBuilder) AddUvarint64(key []byte, value uint64) {
 	b.valueVarints = append(b.valueVarints, value)
 }
 
-// Try to find a hash function that does not cause collisions with table, when
+// tryHash; Try to find a hash function that does not cause collisions with table, when
 // applied to the keys in the bucket.
 func tryHash(hasher *chdHasher, seen map[uint64]struct{}, keys [][]byte, values [][]byte, valueVarints []uint64, indices []uint16, bucket *bucket, ri uint16, r uint64) bool {
 	// Track duplicates within this bucket.
@@ -232,7 +232,7 @@ func (c *chdHasher) random() uint64 {
 	return (uint64(c.rand.Uint32()) << 32) | uint64(c.rand.Uint32())
 }
 
-// Hash index from key.
+// HashIndexFromKey; index from key.
 func (h *chdHasher) HashIndexFromKey(b []byte) uint64 {
 	return (hasher(b) ^ h.r[0]) % h.buckets
 }

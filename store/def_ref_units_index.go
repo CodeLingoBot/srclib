@@ -34,7 +34,7 @@ var c_defRefUnitsIndex_getByDef = &counter{count: new(int64)}
 
 func (x *defRefUnitsIndex) String() string { return fmt.Sprintf("defRefUnitsIndex(ready=%v)", x.ready) }
 
-// getByFile returns a list of source units that contain refs to the
+// getByDef returns a list of source units that contain refs to the
 // specified def.
 func (x *defRefUnitsIndex) getByDef(def graph.RefDefKey) ([]unit.ID2, bool, error) {
 	vlog.Printf("defRefUnitsIndex.getByDef(%v)", def)

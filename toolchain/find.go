@@ -210,7 +210,7 @@ func lookInPaths(pattern string, paths string) ([]string, error) {
 	return found, nil
 }
 
-// searches for matching Windows executable (.exe, .bat, .cmd)
+// winExe searches for matching Windows executable (.exe, .bat, .cmd)
 func winExe(dir string, program string) string {
 	candidate := program + ".exe"
 	if _, err := os.Stat(filepath.Join(dir, candidate)); err == nil {
